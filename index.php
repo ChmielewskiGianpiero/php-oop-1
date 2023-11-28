@@ -6,22 +6,26 @@ class Production
     public $language;
     public $rating;
 
-    function __construct(String $_title, $_language, Int $_rating)
+    function __construct(String $_title, $_language, $_rating)
     {
         $this->title = $_title;
         $this->language = $_language;
-        $this->rating = $_rating;
+        $this->setRating($_rating);
     }
 
     public function getRating()
     {
         return $this-> rating;
-        return $this->address?->city;
-    // if (is_null($this->address)) {
-    //   return null;
-    // } else {
-    //   return $this->address->city;
-    // }
+    }
+
+    public function setRating($rating)
+    {
+        if (is_numeric($rating)) {
+            $this->rating = intval($rating);
+        }else {
+            echo 'Il parametro $rating non è corretto';
+        }
+
     }
 }
 
@@ -35,7 +39,7 @@ class Production
 
 
 
-$shrek = new Production('Shrek','English', '9');
+$shrek = new Production('Shrek','English', '10');
 $taxi_driver = new Production ('Taxi Driver', 'English', '10');
 $fantozzi = new Production ('Fantozzi', 'Italian', '8');
 
@@ -66,7 +70,7 @@ $movies = [
     <li>
         <div> <strong>Titolo:</strong> <?php echo $movie->title ?> </div>
         <div> <strong>Lingua:</strong> <?php echo $movie->language ?> </div>
-        <div> <strong>Voto:</strong> <?php echo $movie->rating ?> </div>
+        <div> <strong>Voto:</strong> <?php echo $movie->getRating() ?> </div>
     </li>
 
 <?php } ?>
