@@ -1,0 +1,20 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+ul {
+    border: 2px solid black;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+h1 {
+    text-align: center;
+}
