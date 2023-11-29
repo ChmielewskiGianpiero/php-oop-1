@@ -1,33 +1,7 @@
 <?php
 
-class Production
-{
-    public $title;
-    public $language;
-    public $rating;
+require_once __DIR__ . '/Models/Production.php';
 
-    function __construct(String $_title, $_language, $_rating)
-    {
-        $this->title = $_title;
-        $this->language = $_language;
-        $this->setRating($_rating);
-    }
-
-    public function getRating()
-    {
-        return $this-> rating;
-    }
-
-    public function setRating($rating)
-    {
-        if (is_numeric($rating)) {
-            $this->rating = intval($rating);
-        }else {
-            echo 'Il parametro $rating non è corretto';
-        }
-
-    }
-}
 
 
 // il construct ci evita questi passaggi
@@ -44,11 +18,13 @@ $taxi_driver = new Production ('Taxi Driver', 'English', '10');
 $fantozzi = new Production ('Fantozzi', 'Italian', '8');
 
 
+
 $movies = [
     $shrek,
     $taxi_driver,
     $fantozzi
 ];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,13 +39,12 @@ $movies = [
     <div class='container'>
         <h1>LISTA DI FILM</h1>
         <ul>
-   
 
 <?php foreach($movies as $movie) { ?>
 
     <li>
-        <div> <strong>Titolo:</strong> <?php echo $movie->title ?> </div>
-        <div> <strong>Lingua:</strong> <?php echo $movie->language ?> </div>
+        <div> <strong>Titolo:</strong> <?php echo $movie->getTitle() ?> </div>
+        <div> <strong>Lingua:</strong> <?php echo $movie->getLanguage() ?> </div>
         <div> <strong>Voto:</strong> <?php echo $movie->getRating() ?> </div>
     </li>
 
