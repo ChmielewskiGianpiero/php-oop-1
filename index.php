@@ -1,28 +1,27 @@
 <?php
 
-require_once __DIR__ . '/Models/Production.php';
+require_once __DIR__ . '/Models/Movie.php';
+require_once __DIR__ . '/Models/Serie.php';
 
 
 
-// il construct ci evita questi passaggi
-
-// $shrek = new Production();
-// $shrek-> title = 'Shrek';
-// $shrek-> language = 'English';
-// $shrek-> rating = '10';
+$movie = new Movie('Shrek','English', '10',20, 20);
+$serie = new Serie ('Breaking Bad', 'English', '10', 2);
 
 
 
-$shrek = new Production('Shrek','English', '10');
-$taxi_driver = new Production ('Taxi Driver', 'English', '10');
-$fantozzi = new Production ('Fantozzi', 'Italian', '8');
 
-
-
-$movies = [
-    $shrek,
-    $taxi_driver,
-    $fantozzi
+$productions = [
+    $movie,
+    $movie,
+    $movie,
+    $movie,
+    $movie,
+    $serie,
+    $serie,
+    $serie,
+    $serie,
+    $serie
 ];
 
 ?>
@@ -40,12 +39,12 @@ $movies = [
         <h1>LISTA DI FILM</h1>
         <ul>
 
-<?php foreach($movies as $movie) { ?>
+<?php foreach($productions as $product) { ?>
 
     <li>
-        <div> <strong>Titolo:</strong> <?php echo $movie->getTitle() ?> </div>
-        <div> <strong>Lingua:</strong> <?php echo $movie->getLanguage() ?> </div>
-        <div> <strong>Voto:</strong> <?php echo $movie->getRating() ?> </div>
+        <div> <strong>Titolo:</strong> <?php echo $product->getTitle() ?> </div>
+        <div> <strong>Lingua:</strong> <?php echo $product->getLanguage() ?> </div>
+        <div> <strong>Voto:</strong> <?php echo $product->getRating() ?> </div>
     </li>
 
 <?php } ?>

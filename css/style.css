@@ -11,8 +11,12 @@ ul {
     border: 2px solid black;
     padding: 50px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+}
 
+li {
+    margin: 20px;
 }
 
 h1 {
